@@ -1,5 +1,5 @@
 #include "Game.hpp"
-
+//finished
 Game::Game() : mWindow(sf::VideoMode(1024,720),"game")
  {
 
