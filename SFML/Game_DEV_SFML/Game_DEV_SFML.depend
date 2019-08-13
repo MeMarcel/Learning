@@ -8,3 +8,34 @@
 1565275505 source:d:\learning\sfml\game_dev_sfml\game.cpp
 	"Game.hpp"
 
+1565597663 source:d:\learning\sfml\game_dev_sfml\scenenode.cpp
+	"SceneNode.hpp"
+	<algorithm>
+
+1565683997 d:\learning\sfml\game_dev_sfml\scenenode.hpp
+	<vector>
+	<iostream>
+	<memory>
+	"SFML/Graphics.hpp"
+
+1565596245 source:d:\learning\sfml\game_dev_sfml\entity.cpp
+	"Entity.hpp"
+
+1565597832 d:\learning\sfml\game_dev_sfml\entity.hpp
+	"SFML/Graphics.hpp"
+	"SceneNode.hpp"
+
+1565674328 source:d:\learning\sfml\game_dev_sfml\aircraft.cpp
+	"Aircraft.hpp"
+
+1565674540 d:\learning\sfml\game_dev_sfml\aircraft.hpp
+	"Entity.hpp"
+	"RessourceTexture.hpp"
+
+1565672146 d:\learning\sfml\game_dev_sfml\ressourcetexture.hpp
+	<SFML/Graphics.hpp>
+	"ResourceHolder.hpp"
+
+1565672317 d:\learning\sfml\game_dev_sfml\resourceholder.hpp
+	"assert.h"
+

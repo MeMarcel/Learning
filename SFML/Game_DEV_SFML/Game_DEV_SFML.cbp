@@ -24,6 +24,9 @@
 		</Compiler>
 		<Unit filename="Game.cpp" />
 		<Unit filename="Game.hpp" />
+		<Unit filename="ResourceHolder.hpp" />
+		<Unit filename="SceneNode.cpp" />
+		<Unit filename="SceneNode.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
