@@ -1,5 +1,5 @@
 #include "Aircraft.hpp"
-
+#include <assert.h>
 Textures::ID toTextureID(Aircraft::Type type)
 {
     switch(type)
@@ -13,16 +13,19 @@ Textures::ID toTextureID(Aircraft::Type type)
 }
 
 
-Aircraft::Aircraft(Type type, const TextureHolder& textures) : myType(type), mSprite(textures.get(toTextureID(type))) {
+Aircraft::Aircraft(Type type, TextureHolder& textures) : myType(type), mSprite(textures.get(toTextureID(type))) {
 mSprite.setOrigin(mSprite.getLocalBounds().width / 2.f ,mSprite.getLocalBounds().height / 2.f ); //set sprite orgini to center
 
 }
 
  void Aircraft::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    target.draw(this->mSprite);
+    target.draw(this->mSprite,states);
 }
 
  void Aircraft::updateCurrent(sf::Time delta){
+
+    move(delta.asSeconds() * mVelocity);
+    setRotation(getRotation() +200 * delta.asSeconds());
 
  }

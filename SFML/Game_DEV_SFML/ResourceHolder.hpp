@@ -1,10 +1,12 @@
-
+#ifndef RESSOURCEHOLDER_HPP
+#define RESSOURCEHOLDER_HPP
 #include "assert.h"
+
 template <typename Resource, typename Identifier>
 class ResourceHolder
 {
 public:
-    ResourceHolder();
+    ResourceHolder(){}
     void load(Identifier id, const std::string& filename)
     {
         std::unique_ptr<Resource> res(new Resource());
@@ -45,3 +47,4 @@ private:
     std::map<Identifier, std::unique_ptr<Resource>> ResourceMap;
 
 };
+#endif

@@ -1,6 +1,6 @@
 #include "Game.hpp"
 //finished
-Game::Game() : mWindow(sf::VideoMode(1024,720),"game")
+Game::Game() : mWindow(sf::VideoMode(1920,1080),"game") , world1(new World(mWindow))
  {
 
 }
@@ -16,7 +16,7 @@ void Game::run()
         pastTime += clock.restart();
         while(pastTime > tick){
             input();
-            update(tick.asSeconds());
+            update(tick);
             pastTime = pastTime - tick;
         }
         render();
@@ -25,11 +25,12 @@ void Game::run()
 
 void Game::render(){
     this->mWindow.clear();
+    world1->draw();
     this->mWindow.display();
 }
 
-void Game::update(float delta){
-
+void Game::update(sf::Time delta){
+world1->update(delta);
 }
 
 void Game::input(){

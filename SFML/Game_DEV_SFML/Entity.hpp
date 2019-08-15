@@ -6,7 +6,7 @@ public:
     void setVeloctiy(sf::Vector2f velocity);
     void setVeloctiy(float vx, float vy);
     sf::Vector2f getVelocity() const;
-private:
+protected:
     sf::Vector2f mVelocity;
 
 };

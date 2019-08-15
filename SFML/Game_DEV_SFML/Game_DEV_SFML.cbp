@@ -22,11 +22,20 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Aircraft.cpp" />
+		<Unit filename="Aircraft.hpp" />
+		<Unit filename="Entity.cpp" />
+		<Unit filename="Entity.hpp" />
 		<Unit filename="Game.cpp" />
 		<Unit filename="Game.hpp" />
 		<Unit filename="ResourceHolder.hpp" />
+		<Unit filename="RessourceTexture.hpp" />
 		<Unit filename="SceneNode.cpp" />
 		<Unit filename="SceneNode.hpp" />
+		<Unit filename="SpriteNode.cpp" />
+		<Unit filename="SpriteNode.hpp" />
+		<Unit filename="World.cpp" />
+		<Unit filename="World.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

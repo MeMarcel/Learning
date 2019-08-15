@@ -9,6 +9,13 @@ SceneNode::SceneNode()
 
 void SceneNode::attachChild(Ptr child)
 {
+
+    child->mParent = this;
+    mChildren.push_back(std::move(child));
+}
+void SceneNode::attachChild(Ptr child, int i)
+{
+    this->i = i;
     child->mParent = this;
     mChildren.push_back(std::move(child));
 }
@@ -23,6 +30,7 @@ Ptr SceneNode::detachChild(const SceneNode& node)
 }
 
 void SceneNode::draw(sf::RenderTarget& target, sf::RenderStates states )const{
+
     states.transform *= getTransform();
     drawCurrent(target,states);
     for(const Ptr& child : mChildren)
@@ -30,6 +38,7 @@ void SceneNode::draw(sf::RenderTarget& target, sf::RenderStates states )const{
 }
 
 void SceneNode::update(sf::Time delta){
+    updateCurrent(delta);
     for(const Ptr& child: mChildren)
         child->update(delta);
 }

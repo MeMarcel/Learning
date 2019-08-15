@@ -2,40 +2,62 @@
 1565269277 source:d:\learning\sfml\game_dev_sfml\main.cpp
 	"Game.hpp"
 
-1565272674 d:\learning\sfml\game_dev_sfml\game.hpp
+1565712818 d:\learning\sfml\game_dev_sfml\game.hpp
 	"SFML/Graphics.hpp"
+	"World.hpp"
 
-1565275505 source:d:\learning\sfml\game_dev_sfml\game.cpp
+1565800169 source:d:\learning\sfml\game_dev_sfml\game.cpp
 	"Game.hpp"
 
-1565597663 source:d:\learning\sfml\game_dev_sfml\scenenode.cpp
+1565801898 source:d:\learning\sfml\game_dev_sfml\scenenode.cpp
 	"SceneNode.hpp"
 	<algorithm>
 
-1565683997 d:\learning\sfml\game_dev_sfml\scenenode.hpp
+1565801368 d:\learning\sfml\game_dev_sfml\scenenode.hpp
 	<vector>
 	<iostream>
 	<memory>
 	"SFML/Graphics.hpp"
 
-1565596245 source:d:\learning\sfml\game_dev_sfml\entity.cpp
+1565711979 source:d:\learning\sfml\game_dev_sfml\entity.cpp
 	"Entity.hpp"
 
-1565597832 d:\learning\sfml\game_dev_sfml\entity.hpp
+1565711997 d:\learning\sfml\game_dev_sfml\entity.hpp
 	"SFML/Graphics.hpp"
 	"SceneNode.hpp"
 
-1565674328 source:d:\learning\sfml\game_dev_sfml\aircraft.cpp
+1565843445 source:d:\learning\sfml\game_dev_sfml\aircraft.cpp
 	"Aircraft.hpp"
+	<assert.h>
 
-1565674540 d:\learning\sfml\game_dev_sfml\aircraft.hpp
+1565708384 d:\learning\sfml\game_dev_sfml\aircraft.hpp
 	"Entity.hpp"
 	"RessourceTexture.hpp"
 
-1565672146 d:\learning\sfml\game_dev_sfml\ressourcetexture.hpp
+1565708492 d:\learning\sfml\game_dev_sfml\ressourcetexture.hpp
+	"ResourceHolder.hpp"
 	<SFML/Graphics.hpp>
+
+1565713114 d:\learning\sfml\game_dev_sfml\resourceholder.hpp
+	"assert.h"
+
+1565803730 source:d:\learning\sfml\game_dev_sfml\spritenode.cpp
+	"SpriteNode.hpp"
+
+1565802536 d:\learning\sfml\game_dev_sfml\spritenode.hpp
+	"SceneNode.hpp"
+
+1565849549 source:d:\learning\sfml\game_dev_sfml\world.cpp
+	"World.hpp"
+	"RessourceTexture.hpp"
 	"ResourceHolder.hpp"
 
-1565672317 d:\learning\sfml\game_dev_sfml\resourceholder.hpp
-	"assert.h"
+1565707823 d:\learning\sfml\game_dev_sfml\world.hpp
+	"Aircraft.hpp"
+	"RessourceTexture.hpp"
+	"ResourceHolder.hpp"
+	"SceneNode.hpp"
+	"SpriteNode.hpp"
+	"Aircraft.hpp"
+	<array>
 
