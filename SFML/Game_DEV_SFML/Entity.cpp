@@ -1,10 +1,10 @@
 #include "Entity.hpp"
-void Entity::setVeloctiy(sf::Vector2f velo)
+void Entity::setVelocity(sf::Vector2f velo)
 {
     this->mVelocity = velo;
 }
 
-void Entity::setVeloctiy(float vx, float vy)
+void Entity::setVelocity(float vx, float vy)
 {
     this->mVelocity.x = vx;
     this->mVelocity.y = vy;

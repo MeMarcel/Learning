@@ -29,7 +29,8 @@ Ptr SceneNode::detachChild(const SceneNode& node)
     return result;
 }
 
-void SceneNode::draw(sf::RenderTarget& target, sf::RenderStates states )const{
+void SceneNode::draw(sf::RenderTarget& target, sf::RenderStates states )const
+{
 
     states.transform *= getTransform();
     drawCurrent(target,states);
@@ -37,20 +38,37 @@ void SceneNode::draw(sf::RenderTarget& target, sf::RenderStates states )const{
         child->draw(target,states);
 }
 
-void SceneNode::update(sf::Time delta){
+void SceneNode::update(sf::Time delta)
+{
     updateCurrent(delta);
     for(const Ptr& child: mChildren)
         child->update(delta);
 }
 
-    sf::Transform SceneNode::getWorldTransform() {
-      sf::Transform resultTransform = sf::Transform::Identity;
-        for(SceneNode *n  = this; n != nullptr; n = n->mParent )
-            resultTransform = resultTransform * n->getTransform();
-        return resultTransform;
-    }
-    sf::Vector2f SceneNode::getWorldPosition() {
-        return getWorldTransform() * sf::Vector2f();
+sf::Transform SceneNode::getWorldTransform()
+{
+    sf::Transform resultTransform = sf::Transform::Identity;
+    for(SceneNode *n  = this; n != nullptr; n = n->mParent )
+        resultTransform = resultTransform * n->getTransform();
+    return resultTransform;
+}
+sf::Vector2f SceneNode::getWorldPosition()
+{
+    return getWorldTransform() * sf::Vector2f();
+}
+
+unsigned int SceneNode::getCategory() const
+{
+    return Category::Scene;
+}
+
+void SceneNode::onCommand(const Command& command, sf::Time dt)
+{
+    if(command.category == getCategory()){
+          command.action(*this,dt);
     }
 
+    for(Ptr& child : mChildren)
+        child->onCommand(command,dt);
 
+}

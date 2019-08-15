@@ -2,35 +2,40 @@
 1565269277 source:d:\learning\sfml\game_dev_sfml\main.cpp
 	"Game.hpp"
 
-1565712818 d:\learning\sfml\game_dev_sfml\game.hpp
+1565884786 d:\learning\sfml\game_dev_sfml\game.hpp
 	"SFML/Graphics.hpp"
 	"World.hpp"
+	"Player.hpp"
 
-1565800169 source:d:\learning\sfml\game_dev_sfml\game.cpp
+1565886076 source:d:\learning\sfml\game_dev_sfml\game.cpp
 	"Game.hpp"
+	<string>
+	<sstream>
 
-1565801898 source:d:\learning\sfml\game_dev_sfml\scenenode.cpp
+1565870948 source:d:\learning\sfml\game_dev_sfml\scenenode.cpp
 	"SceneNode.hpp"
 	<algorithm>
 
-1565801368 d:\learning\sfml\game_dev_sfml\scenenode.hpp
+1565867068 d:\learning\sfml\game_dev_sfml\scenenode.hpp
+	"Category.hpp"
 	<vector>
 	<iostream>
 	<memory>
 	"SFML/Graphics.hpp"
+	"Command.hpp"
 
-1565711979 source:d:\learning\sfml\game_dev_sfml\entity.cpp
+1565865554 source:d:\learning\sfml\game_dev_sfml\entity.cpp
 	"Entity.hpp"
 
-1565711997 d:\learning\sfml\game_dev_sfml\entity.hpp
+1565865852 d:\learning\sfml\game_dev_sfml\entity.hpp
 	"SFML/Graphics.hpp"
 	"SceneNode.hpp"
 
-1565843445 source:d:\learning\sfml\game_dev_sfml\aircraft.cpp
+1565883184 source:d:\learning\sfml\game_dev_sfml\aircraft.cpp
 	"Aircraft.hpp"
 	<assert.h>
 
-1565708384 d:\learning\sfml\game_dev_sfml\aircraft.hpp
+1565867078 d:\learning\sfml\game_dev_sfml\aircraft.hpp
 	"Entity.hpp"
 	"RessourceTexture.hpp"
 
@@ -47,17 +52,45 @@
 1565802536 d:\learning\sfml\game_dev_sfml\spritenode.hpp
 	"SceneNode.hpp"
 
-1565849549 source:d:\learning\sfml\game_dev_sfml\world.cpp
+1565886067 source:d:\learning\sfml\game_dev_sfml\world.cpp
 	"World.hpp"
 	"RessourceTexture.hpp"
 	"ResourceHolder.hpp"
 
-1565707823 d:\learning\sfml\game_dev_sfml\world.hpp
+1565885737 d:\learning\sfml\game_dev_sfml\world.hpp
 	"Aircraft.hpp"
 	"RessourceTexture.hpp"
 	"ResourceHolder.hpp"
 	"SceneNode.hpp"
 	"SpriteNode.hpp"
 	"Aircraft.hpp"
+	"CommandQueue.hpp"
 	<array>
+
+1565858658 d:\learning\sfml\game_dev_sfml\category.hpp
+
+1565864785 d:\learning\sfml\game_dev_sfml\command.hpp
+	"SFML/System/Time.hpp"
+	"SceneNode.hpp"
+	<functional>
+	<cassert>
+
+1565866835 source:d:\learning\sfml\game_dev_sfml\commandqueue.cpp
+	"CommandQueue.hpp"
+
+1565861218 d:\learning\sfml\game_dev_sfml\commandqueue.hpp
+	"Command.hpp"
+	<queue>
+
+1565863727 d:\learning\sfml\game_dev_sfml\player.hpp
+	"CommandQueue.hpp"
+	"SFML/Graphics.hpp"
+	<map>
+
+1565883784 source:d:\learning\sfml\game_dev_sfml\player.cpp
+	"Player.hpp"
+	"Aircraft.hpp"
+	<map>
+	<string>
+	<algorithm>
 
