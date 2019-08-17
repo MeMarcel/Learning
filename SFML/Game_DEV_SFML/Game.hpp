@@ -1,6 +1,8 @@
 #include "SFML/Graphics.hpp"
 #include "World.hpp"
 #include "Player.hpp"
+#include "StateStack.hpp"
+#include "FontHolder.hpp"
 
 class Game
 {
@@ -11,12 +13,16 @@ public:
     void render();
     void input();
     void updateStatistics(sf::Time time);
+
 private:
     sf::RenderWindow mWindow;
     Player mPlayer;
-    std::unique_ptr<World> mWorld;
-        sf::Font				mFont;
+        sf::Font                mFont;
+        FontHolder				mFonts;
 		sf::Text				mStatisticsText;
 		sf::Time				mStatisticsUpdateTime;
 		std::size_t				mStatisticsNumFrames;
+		StateStack				mStateStack;
+		TextureHolder			mTextures;
+		void					registerStates();
 };

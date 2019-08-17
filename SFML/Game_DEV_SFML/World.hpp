@@ -1,3 +1,6 @@
+#ifndef WORLD_HPP
+#define WORLD_HPP
+
 #include "Aircraft.hpp"
 #include "RessourceTexture.hpp"
 #include "ResourceHolder.hpp"
@@ -7,7 +10,7 @@
 #include "Aircraft.hpp"
 #include "CommandQueue.hpp"
 #include <array>
-
+#include "FontHolder.hpp"
 
 
 class World : private sf::NonCopyable
@@ -34,6 +37,7 @@ private:
     sf::RenderWindow&                           mWindow;
     sf::View                                    mWorldView;
     TextureHolder                               mTextures;
+
     SceneNode                                   mSceneGraph;
     std::array<SceneNode*, LayerCount>          mSceneLayers;
 
@@ -42,3 +46,4 @@ private:
     float                                       mScrollSpeed;
     Aircraft*                                   mPlayerAircraft;
 };
+#endif // WORLD_HPP

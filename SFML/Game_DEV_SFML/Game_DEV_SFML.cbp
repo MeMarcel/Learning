@@ -34,6 +34,10 @@
 		<Unit filename="SceneNode.hpp" />
 		<Unit filename="SpriteNode.cpp" />
 		<Unit filename="SpriteNode.hpp" />
+		<Unit filename="State.cpp" />
+		<Unit filename="State.hpp" />
+		<Unit filename="StateStack.cpp" />
+		<Unit filename="StateStack.hpp" />
 		<Unit filename="World.cpp" />
 		<Unit filename="World.hpp" />
 		<Unit filename="main.cpp" />

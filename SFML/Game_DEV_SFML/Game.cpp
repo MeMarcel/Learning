@@ -1,6 +1,12 @@
 #include "Game.hpp"
 #include <string>
 #include <sstream>
+#include "StateIdentifiers.hpp"
+#include "State.hpp"
+#include "GameState.hpp"
+#include "TitleState.hpp"
+#include "MenuState.hpp"
+#include "PauseState.hpp"
 
 template <typename T>
 std::string ToString(T val) {
@@ -9,10 +15,23 @@ std::string ToString(T val) {
   return stream.str();
 }
 
-Game::Game() : mWindow(sf::VideoMode(1024,720),"game") , mWorld(new World(mWindow))
- {
-    	mFont.loadFromFile("Media/Sansation.ttf");
-	mStatisticsText.setFont(mFont);
+Game::Game() : mWindow(sf::VideoMode(1024, 720), "test", sf::Style::Close)
+, mTextures()
+, mFonts()
+, mPlayer()
+, mStateStack(State::Context(mWindow, mTextures, mFonts, mPlayer))
+, mStatisticsText()
+, mStatisticsUpdateTime()
+, mStatisticsNumFrames(0)
+{
+
+    mWindow.setKeyRepeatEnabled(false);
+    mFonts.load(Fonts::font1,"Media/Sansation.ttf");
+    mStatisticsText.setFont(mFonts.get(Fonts::font1));
+    mTextures.load(Textures::TitleScreen, "Media/Textures/TitleScreen.png");
+
+     registerStates();
+
 }
 
 void Game::run()
@@ -37,29 +56,31 @@ void Game::run()
 
 void Game::render(){
     this->mWindow.clear();
-    mWorld->draw();
-    mStatisticsText.setPosition(mWorld->getView().getCenter().x,0);
+    mStateStack.draw();
+    mStatisticsText.setPosition(mWindow.getView().getCenter().x,0);
     this->mWindow.draw(mStatisticsText);
     this->mWindow.display();
 }
 
 void Game::update(sf::Time delta){
-    mWorld->update(delta);
+
+    mStateStack.update(delta);
+     if(mStateStack.isEmpty())
+        this->mWindow.close();
 }
 
 void Game::input(){
 
-    CommandQueue& commands = mWorld->getCommandQueue();
     sf::Event event;
 
     while(this->mWindow.pollEvent(event)){
 
-            mPlayer.handleEvent(event, commands);
+            mStateStack.handleEvent(event);
         if(event.type == sf::Event::Closed)
             this->mWindow.close();
     }
 
-    mPlayer.handleRealtimeInput(commands);
+
 }
 
 void Game::updateStatistics(sf::Time elapsedTime)
@@ -76,4 +97,13 @@ void Game::updateStatistics(sf::Time elapsedTime)
 		mStatisticsUpdateTime -= sf::seconds(1.0f);
 		mStatisticsNumFrames = 0;
 	}
+}
+
+void Game::registerStates(){
+
+	mStateStack.registerState<TitleState>(States::Title);
+	mStateStack.registerState<MenuState>(States::Menu);
+	mStateStack.registerState<GameState>(States::Game);
+	mStateStack.registerState<PauseState>(States::Pause);
+	mStateStack.pushState(States::Title);
 }

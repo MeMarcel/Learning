@@ -1,6 +1,8 @@
 #ifndef RESSOURCEHOLDER_HPP
 #define RESSOURCEHOLDER_HPP
 #include "assert.h"
+#include "memory"
+#include <map>
 
 template <typename Resource, typename Identifier>
 class ResourceHolder
