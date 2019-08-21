@@ -39,9 +39,9 @@ std::vector<AircraftData> initializeAircraftData(){
 	data[Aircraft::Raptor].hitPoints = 20;
 	data[Aircraft::Raptor].speed = -500.f;
 	data[Aircraft::Raptor].texture = Textures::Raptor;
-	data[Aircraft::Raptor].directions.push_back(Direction(-45.f,10.f));
-	data[Aircraft::Raptor].directions.push_back(Direction(80.f , 10.f));
-	data[Aircraft::Raptor].directions.push_back(Direction(-45.f, 10.f));
+	data[Aircraft::Raptor].directions.push_back(Direction(-45.f,80.f));
+	data[Aircraft::Raptor].directions.push_back(Direction(45.f , 160.f));
+	data[Aircraft::Raptor].directions.push_back(Direction(-45.f, 80.f));
 	data[Aircraft::Raptor].fireInterval = sf::Time::Zero;
 
 	data[Aircraft::Avenger].hitPoints = 40;

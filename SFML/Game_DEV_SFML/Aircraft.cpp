@@ -67,12 +67,12 @@ const std::vector<Direction>& directions = Table[myType].directions;
             mDirectionIndex = (mDirectionIndex + 1) % directions.size();
         mDistanceToTravel = 0.f;
         }
+
         float radians = toRadian(directions[mDirectionIndex].angle);
-        std::cout << "angle:" << directions[mDirectionIndex].angle << std::endl;
         float vx = getMaxSpeed() * std::cos(radians);
         float vy = getMaxSpeed() * std::sin(radians);
         setVelocity(vx,vy);
-        mDistanceToTravel += getMaxSpeed() * dt.asSeconds();
+        mDistanceToTravel += std::abs(getMaxSpeed() * dt.asSeconds());
     }
 }
 float Aircraft::getMaxSpeed() const
