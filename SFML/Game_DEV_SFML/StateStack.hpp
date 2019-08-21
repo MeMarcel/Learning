@@ -1,10 +1,9 @@
-#ifndef RESOURCEIDENTIFIERS_HPP
-#define RESOURCEIDENTIFIERS_HPP
+#ifndef STATESTACK_HPP
+#define STATESTACK_HPP
 
 #include "State.hpp"
 #include "StateIdentifiers.hpp"
-#include "RessourceTexture.hpp"
-#include "FontHolder.hpp"
+#include "ResourceIdentifiers.hpp"
 
 #include <SFML/System/NonCopyable.hpp>
 #include <SFML/System/Time.hpp>

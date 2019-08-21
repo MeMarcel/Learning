@@ -7,15 +7,11 @@
 #include "TitleState.hpp"
 #include "MenuState.hpp"
 #include "PauseState.hpp"
+#include "Utility.hpp"
+#include "ResourceIdentifiers.hpp"
 
-template <typename T>
-std::string ToString(T val) {
-  std::stringstream stream;
-  stream << val;
-  return stream.str();
-}
 
-Game::Game() : mWindow(sf::VideoMode(1024, 720), "test", sf::Style::Close)
+Game::Game() : mWindow(sf::VideoMode(1024, 720), "test", sf::Style::Fullscreen)
 , mTextures()
 , mFonts()
 , mPlayer()
@@ -29,6 +25,9 @@ Game::Game() : mWindow(sf::VideoMode(1024, 720), "test", sf::Style::Close)
     mFonts.load(Fonts::font1,"Media/Sansation.ttf");
     mStatisticsText.setFont(mFonts.get(Fonts::font1));
     mTextures.load(Textures::TitleScreen, "Media/Textures/TitleScreen.png");
+    mTextures.load(Textures::ButtonNormal,		"Media/Textures/ButtonNormal.png");
+	mTextures.load(Textures::ButtonSelected,	"Media/Textures/ButtonSelected.png");
+	mTextures.load(Textures::ButtonPressed,		"Media/Textures/ButtonPressed.png");
 
      registerStates();
 
@@ -91,8 +90,8 @@ void Game::updateStatistics(sf::Time elapsedTime)
 	if (mStatisticsUpdateTime >= sf::seconds(1.0f))
 	{
 		mStatisticsText.setString(
-			"Frames / Second = " + ToString(mStatisticsNumFrames) + "\n" +
-			"Time / Update = " + ToString(mStatisticsUpdateTime.asMicroseconds() / mStatisticsNumFrames) + "us");
+			"Frames / Second = " + toString(mStatisticsNumFrames) + "\n" +
+			"Time / Update = " + toString(mStatisticsUpdateTime.asMicroseconds() / mStatisticsNumFrames) + "us");
 
 		mStatisticsUpdateTime -= sf::seconds(1.0f);
 		mStatisticsNumFrames = 0;

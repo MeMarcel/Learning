@@ -1,6 +1,6 @@
 #include "TitleState.hpp"
 #include "StateIdentifiers.hpp"
-#include "FontHolder.hpp"
+#include "ResourceIdentifiers.hpp"
 TitleState::TitleState(StateStack& stack,Context c) : State(stack,c)
 
 ,mText()

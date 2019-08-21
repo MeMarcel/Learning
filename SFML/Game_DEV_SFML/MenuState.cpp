@@ -1,65 +1,121 @@
 #include "MenuState.hpp"
-#include "StateIdentifiers.hpp"
-#include "FontHolder.hpp"
+#include "Button.hpp"
+#include "Utility.hpp"
+#include "ResourceHolder.hpp"
+#include "SFML/Graphics.hpp"
+#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Graphics/View.hpp>
 
 
-MenuState::MenuState(StateStack& stack, Context context) : State(stack,context) {
-moptionIndex = 0;
-sf::Text playOption, exitOption;
-playOption.setFont(context.fonts->get(Fonts::font1));
-exitOption.setFont(context.fonts->get(Fonts::font1));
-exitOption.setString("Exit");
-playOption.setString("Play");
-playOption.setColor(sf::Color::Red);
-playOption.setPosition(context.window->getView().getSize()/2.f);
-exitOption.setPosition(context.window->getView().getSize().x/2.f , context.window->getView().getSize().y/2.f + 100);
-mOptions.push_back(playOption);
-mOptions.push_back(exitOption);
-}
+template <typename width, typename heigh>
+    struct Size{
+        width x;
+        heigh y;
 
+    };
+MenuState::MenuState(StateStack& stack, Context context)
+: State(stack, context)
+, mGui(*context.window)
+{
+    auto theme = tgui::Theme::create("Black.txt");
+    auto windowWidth = tgui::bindWidth(mGui);
+    auto windowHeight = tgui::bindHeight(mGui);
+    tgui::Button::Ptr playButton = theme->load("Button");
+    Size<tgui::Layout,tgui::Layout> size;
+    size.x = windowWidth;
+    size.y = windowHeight / 8;
 
+    playButton->setSize(windowWidth / 6, windowHeight / 8);
+    playButton->setPosition(windowWidth / 2 - windowWidth / 12, windowHeight /2 - 2* (size.y + 30));
+    playButton->setText("New Game");
+    mGui.add(playButton);
+    playButton->connect("pressed", [this] ()
+	{
 
-void MenuState::draw(){
-     sf::RenderWindow& window = *getContext().window;
-     for(sf::Text t : mOptions) {
-
-        window.draw(t);
-     }
-}
-
-bool MenuState::update(sf::Time dt){return true;}
-
-bool MenuState::handleEvent(const sf::Event& e){
-
-if(e.key.code == sf::Keyboard::Up){
-         if(0 < moptionIndex){
-    moptionIndex -=1;
-   updateMenu();}
-}
-if(e.key.code == sf::Keyboard::Down){
-    if(mOptions.size() - 1 > moptionIndex){
-    moptionIndex +=1;
-   updateMenu();}
-}
-if(e.key.code == sf::Keyboard::Return){
-    if(moptionIndex == Play){
-        requestStackPop();
+		requestStackPop();
         requestStackPush(States::Game);
-    }
-        if(moptionIndex == Exit){
-        requestStackPop();
 
-    }
+	});
+
+	    tgui::Button::Ptr loadButton = theme->load("Button");
+    loadButton->setSize(windowWidth / 6, windowHeight / 8);
+    loadButton->setPosition(windowWidth / 2 +  - windowWidth / 12, windowHeight /2 - (size.y + 30) );
+    loadButton->setText("Load Game");
+    mGui.add(loadButton);
+    loadButton->connect("pressed", [this] ()
+	{
+
+		requestStackPop();
+        requestStackPush(States::Game);
+
+	});
+
+		    tgui::Button::Ptr multiplayerButton = theme->load("Button");
+    multiplayerButton->setSize(windowWidth / 6, windowHeight / 8);
+    multiplayerButton->setPosition(windowWidth / 2 +  - windowWidth / 12, windowHeight /2  );
+    multiplayerButton->setText("Multiplayer");
+    mGui.add(multiplayerButton);
+    multiplayerButton->connect("pressed", [this] ()
+	{
+
+		requestStackPop();
+        requestStackPush(States::Game);
+
+	});
+
+			    tgui::Button::Ptr settingsButton = theme->load("Button");
+    settingsButton->setSize(windowWidth / 6, windowHeight / 8);
+    settingsButton->setPosition(windowWidth / 2 +  - windowWidth / 12, windowHeight /2  + (size.y + 30)  );
+    settingsButton->setText("Settings");
+    mGui.add(settingsButton);
+    settingsButton->connect("pressed", [this] ()
+	{
+
+		requestStackPop();
+        requestStackPush(States::Game);
+
+	});
+
+				    tgui::Button::Ptr exitButton = theme->load("Button");
+    exitButton->setSize(windowWidth / 6, windowHeight / 8);
+    exitButton->setPosition(windowWidth / 2 +  - windowWidth / 12, windowHeight /2 + 2*(size.y + 30)  );
+    exitButton->setText("Exit");
+    mGui.add(exitButton);
+    exitButton->connect("pressed", [this] ()
+	{
+
+		requestStackPop();
+
+
+	});
+
+
+	sf::Texture& texture = context.textures->get(Textures::TitleScreen);
+	mBackgroundSprite.setTexture(texture);
+
+
+
+
+
 }
-return true;
+
+void MenuState::draw()
+{
+	sf::RenderWindow& window = *getContext().window;
+
+	window.setView(window.getDefaultView());
+
+	window.draw(mBackgroundSprite);
+	        mGui.draw();
 }
-    void MenuState::updateMenu(){
 
-     for(sf::Text& t : this->mOptions) {
+bool MenuState::update(sf::Time)
+{
+	return true;
+}
 
-        t.setColor(sf::Color::White);
-     }
-
-     mOptions[moptionIndex].setColor(sf::Color::Red);
-
-    }
+bool MenuState::handleEvent(const sf::Event& event)
+{
+    mGui.handleEvent(event);
+	return false;
+}

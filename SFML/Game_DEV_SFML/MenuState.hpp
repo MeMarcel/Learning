@@ -4,14 +4,12 @@
 #include "SFML/Graphics.hpp"
 #include "State.hpp"
 #include "StateStack.hpp"
+#include "Container.hpp"
+#include <TGUI/TGUI.hpp>
 
 
 class MenuState : public State{
-public:
-    enum OptionNames{
-    Play,
-    Exit,
-    };
+
 public:
                                 MenuState(StateStack& stack, Context context);
     virtual void                draw();
@@ -20,8 +18,9 @@ public:
     void                         updateMenu();
 
 private:
-    std::vector<sf::Text> mOptions;
-    std::size_t           moptionIndex;
+		GUI::Container			mGUIContainer;
+				sf::Sprite				mBackgroundSprite;
+        tgui::Gui mGui;
 
 };
 

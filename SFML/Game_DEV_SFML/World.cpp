@@ -1,5 +1,5 @@
 #include "World.hpp"
-#include "RessourceTexture.hpp"
+#include "ResourceIdentifiers.hpp"
 #include "ResourceHolder.hpp"
 
 World::World(sf::RenderWindow& window) : mWindow(window)
@@ -21,6 +21,7 @@ void World::loadTextures(){
     mTextures.load(Textures::Eagle, "Media/Textures/Eagle.png");
     mTextures.load(Textures::Raptor, "Media/Textures/Raptor.png");
     mTextures.load(Textures::Desert, "Media/Textures/Desert.png");
+    mFonts.load(Fonts::font1,"Media/Sansation.ttf");
 }
 
 void World::buildScene(){
@@ -39,31 +40,61 @@ void World::buildScene(){
     backgroundSprite->setPosition(mWorldBounds.left,mWorldBounds.top);
     mSceneLayers[Background]->attachChild(std::move(backgroundSprite),1);
 
-    std::unique_ptr<Aircraft> leader(new Aircraft(Aircraft::Eagle, mTextures));
+    std::unique_ptr<Aircraft> leader(new Aircraft(Aircraft::Eagle, mTextures,mFonts));
         mPlayerAircraft = leader.get();
         mPlayerAircraft->setPosition(mSpawnPosition);
         mPlayerAircraft->setVelocity(0.f, mScrollSpeed);
         mSceneLayers[Air]->attachChild(std::move(leader));
 
-    std::unique_ptr<Aircraft> leftEscort(new Aircraft(Aircraft::Raptor, mTextures));
+   /* std::unique_ptr<Aircraft> leftEscort(new Aircraft(Aircraft::Raptor, mTextures,mFonts));
         leftEscort->setPosition(-80.f,50.f);
         mPlayerAircraft->attachChild(std::move(leftEscort));
 
-        std::unique_ptr<Aircraft> rightEscort(new Aircraft(Aircraft::Raptor, mTextures));
+        std::unique_ptr<Aircraft> rightEscort(new Aircraft(Aircraft::Raptor, mTextures,mFonts));
         rightEscort->setPosition(80.f,50.f);
-        mPlayerAircraft->attachChild(std::move(rightEscort));
+        mPlayerAircraft->attachChild(std::move(rightEscort));*/
+
+        addEnemies();
 }
 void World::draw(){
 
     mWindow.setView(mWorldView);
     mWindow.draw(mSceneGraph);
+}
+void World::spawnEnemies(){
+
+    while(!mSpawnPoints.empty() && mSpawnPoints.back().x < getViewBounds().left + getViewBounds().width){
+        std::cout << getViewBounds().left << std::endl;
+
+        SpawnPoint spawn = mSpawnPoints.back();
+        std::unique_ptr<Aircraft> eSpawn( new Aircraft(spawn.type,mTextures,mFonts));
+        eSpawn->setPosition(spawn.x,spawn.y);
+        eSpawn->setRotation(-90.f);
+        mSceneLayers[Air]->attachChild(std::move(eSpawn));
+        mSpawnPoints.pop_back();
+    }
+}
 
 
+sf::FloatRect World::getViewBounds() const
+{
+	return sf::FloatRect(mWorldView.getCenter() - mWorldView.getSize() / 2.f, mWorldView.getSize());
+}
 
+void World::addEnemies(){
+    for (int i = 0; i < 100; i++)
+    addEnemy(Aircraft::Raptor, i*1000 , 200);
+
+    std::sort(mSpawnPoints.begin(),mSpawnPoints.end(), [] (SpawnPoint lhs, SpawnPoint rhs) {return lhs.x > rhs.x;});
+}
+
+void World::addEnemy(Aircraft::Type type, float x, float y){
+    SpawnPoint p(type,x,y);
+    mSpawnPoints.push_back(p);
 }
 void World::update(sf::Time dt){
 
-
+    spawnEnemies();
 
 	mPlayerAircraft->setVelocity(0.f, 0.f);
 

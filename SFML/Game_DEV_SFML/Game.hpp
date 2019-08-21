@@ -1,8 +1,10 @@
 #include "SFML/Graphics.hpp"
 #include "World.hpp"
 #include "Player.hpp"
+#include "ResourceIdentifiers.hpp"
+
 #include "StateStack.hpp"
-#include "FontHolder.hpp"
+
 
 class Game
 {

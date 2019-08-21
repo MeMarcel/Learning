@@ -1,10 +1,9 @@
 #ifndef STATE_HPP
 #define STATE_HPP
 #include "SFML/Graphics.hpp"
-#include "RessourceTexture.hpp"
+#include "ResourceIdentifiers.hpp"
 #include "Player.hpp"
 #include <memory>
-#include "FontHolder.hpp"
 #include "StateIdentifiers.hpp"
 
 class StateStack;

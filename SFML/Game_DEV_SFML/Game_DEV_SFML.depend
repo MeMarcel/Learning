@@ -2,14 +2,14 @@
 1565269277 source:d:\learning\sfml\game_dev_sfml\main.cpp
 	"Game.hpp"
 
-1565977434 d:\learning\sfml\game_dev_sfml\game.hpp
+1566139771 d:\learning\sfml\game_dev_sfml\game.hpp
 	"SFML/Graphics.hpp"
 	"World.hpp"
 	"Player.hpp"
+	"ResourceIdentifiers.hpp"
 	"StateStack.hpp"
-	"FontHolder.hpp"
 
-1566033760 source:d:\learning\sfml\game_dev_sfml\game.cpp
+1566292205 source:d:\learning\sfml\game_dev_sfml\game.cpp
 	"Game.hpp"
 	<string>
 	<sstream>
@@ -19,6 +19,8 @@
 	"TitleState.hpp"
 	"MenuState.hpp"
 	"PauseState.hpp"
+	"Utility.hpp"
+	"ResourceIdentifiers.hpp"
 
 1565870948 source:d:\learning\sfml\game_dev_sfml\scenenode.cpp
 	"SceneNode.hpp"
@@ -32,20 +34,24 @@
 	"SFML/Graphics.hpp"
 	"Command.hpp"
 
-1565865554 source:d:\learning\sfml\game_dev_sfml\entity.cpp
+1566315024 source:d:\learning\sfml\game_dev_sfml\entity.cpp
 	"Entity.hpp"
 
-1565865852 d:\learning\sfml\game_dev_sfml\entity.hpp
+1566315072 d:\learning\sfml\game_dev_sfml\entity.hpp
 	"SFML/Graphics.hpp"
 	"SceneNode.hpp"
 
-1565883184 source:d:\learning\sfml\game_dev_sfml\aircraft.cpp
+1566395808 source:d:\learning\sfml\game_dev_sfml\aircraft.cpp
 	"Aircraft.hpp"
 	<assert.h>
+	"DataTables.hpp"
+	<string>
+	"Utility.hpp"
 
-1565867078 d:\learning\sfml\game_dev_sfml\aircraft.hpp
+1566388223 d:\learning\sfml\game_dev_sfml\aircraft.hpp
 	"Entity.hpp"
-	"RessourceTexture.hpp"
+	"ResourceIdentifiers.hpp"
+	"TextNode.hpp"
 
 1565977459 d:\learning\sfml\game_dev_sfml\ressourcetexture.hpp
 	"ResourceHolder.hpp"
@@ -62,21 +68,20 @@
 1565802536 d:\learning\sfml\game_dev_sfml\spritenode.hpp
 	"SceneNode.hpp"
 
-1565886067 source:d:\learning\sfml\game_dev_sfml\world.cpp
+1566396061 source:d:\learning\sfml\game_dev_sfml\world.cpp
 	"World.hpp"
-	"RessourceTexture.hpp"
+	"ResourceIdentifiers.hpp"
 	"ResourceHolder.hpp"
 
-1566023892 d:\learning\sfml\game_dev_sfml\world.hpp
+1566393833 d:\learning\sfml\game_dev_sfml\world.hpp
 	"Aircraft.hpp"
-	"RessourceTexture.hpp"
 	"ResourceHolder.hpp"
+	"ResourceIdentifiers.hpp"
 	"SceneNode.hpp"
 	"SpriteNode.hpp"
 	"Aircraft.hpp"
 	"CommandQueue.hpp"
 	<array>
-	"FontHolder.hpp"
 
 1565858658 d:\learning\sfml\game_dev_sfml\category.hpp
 
@@ -109,12 +114,11 @@
 	"State.hpp"
 	"StateStack.hpp"
 
-1565960014 d:\learning\sfml\game_dev_sfml\state.hpp
+1566139552 d:\learning\sfml\game_dev_sfml\state.hpp
 	"SFML/Graphics.hpp"
-	"RessourceTexture.hpp"
+	"ResourceIdentifiers.hpp"
 	"Player.hpp"
 	<memory>
-	"FontHolder.hpp"
 	"StateIdentifiers.hpp"
 
 1565958302 d:\learning\sfml\game_dev_sfml\fontholder.hpp
@@ -123,11 +127,10 @@
 
 1565958603 d:\learning\sfml\game_dev_sfml\stateidentifiers.hpp
 
-1566024194 d:\learning\sfml\game_dev_sfml\statestack.hpp
+1566139972 d:\learning\sfml\game_dev_sfml\statestack.hpp
 	"State.hpp"
 	"StateIdentifiers.hpp"
-	"RessourceTexture.hpp"
-	"FontHolder.hpp"
+	"ResourceIdentifiers.hpp"
 	<SFML/System/NonCopyable.hpp>
 	<SFML/System/Time.hpp>
 	<vector>
@@ -157,35 +160,129 @@
 	"World.hpp"
 	"Player.hpp"
 
-1566029783 source:d:\learning\sfml\game_dev_sfml\titlestate.cpp
+1566139616 source:d:\learning\sfml\game_dev_sfml\titlestate.cpp
 	"TitleState.hpp"
 	"StateIdentifiers.hpp"
-	"FontHolder.hpp"
+	"ResourceIdentifiers.hpp"
 
-1566030375 d:\learning\sfml\game_dev_sfml\menustate.hpp
+1566147212 d:\learning\sfml\game_dev_sfml\menustate.hpp
 	<vector>
 	"SFML/Graphics.hpp"
 	"State.hpp"
 	"StateStack.hpp"
+	"Container.hpp"
+	<TGUI/TGUI.hpp>
 
-1566031997 source:d:\learning\sfml\game_dev_sfml\menustate.cpp
+1566292288 source:d:\learning\sfml\game_dev_sfml\menustate.cpp
 	"MenuState.hpp"
-	"StateIdentifiers.hpp"
-	"FontHolder.hpp"
+	"Button.hpp"
+	"Utility.hpp"
+	"ResourceHolder.hpp"
+	"SFML/Graphics.hpp"
+	<SFML/Graphics/RenderWindow.hpp>
+	<SFML/Graphics/View.hpp>
 
-1566032704 d:\learning\sfml\game_dev_sfml\pausestate.hpp
+1566140821 d:\learning\sfml\game_dev_sfml\pausestate.hpp
+	"Container.hpp"
 	"State.hpp"
 	<SFML/Graphics/Sprite.hpp>
 	<SFML/Graphics/Text.hpp>
 
-1566034047 source:d:\learning\sfml\game_dev_sfml\pausestate.cpp
+1566141325 source:d:\learning\sfml\game_dev_sfml\pausestate.cpp
 	"PauseState.hpp"
 	"Utility.hpp"
 	"ResourceHolder.hpp"
 	<SFML/Graphics/RectangleShape.hpp>
 	<SFML/Graphics/RenderWindow.hpp>
 	<SFML/Graphics/View.hpp>
+	"Button.hpp"
+	"Label.hpp"
 
-1566032615 d:\learning\sfml\game_dev_sfml\utility.hpp
+1566389161 d:\learning\sfml\game_dev_sfml\utility.hpp
+	<SFML/Window/Keyboard.hpp>
+	"SFML/Graphics.hpp"
 	<sstream>
+	"Utility.inl"
+
+1566053825 source:d:\learning\sfml\game_dev_sfml\button.cpp
+	"Button.hpp"
+	"Utility.hpp"
+	<SFML/Window/Event.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+
+1566050609 d:\learning\sfml\game_dev_sfml\button.hpp
+	"Component.hpp"
+	"ResourceIdentifiers.hpp"
+	"ResourceHolder.hpp"
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+	<vector>
+	<string>
+	<memory>
+	<functional>
+
+1566053003 d:\learning\sfml\game_dev_sfml\component.hpp
+	<SFML/System/NonCopyable.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<memory>
+
+1566316774 d:\learning\sfml\game_dev_sfml\resourceidentifiers.hpp
+	"SFML/Graphics.hpp"
+	"ResourceHolder.hpp"
+
+1443341460 d:\learning\sfml\game_dev_sfml\utility.inl
+
+1566389372 source:d:\learning\sfml\game_dev_sfml\utility.cpp
+	"Utility.hpp"
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+	<random>
+	<cmath>
+	<ctime>
+	<cassert>
+
+1566138618 source:d:\learning\sfml\game_dev_sfml\component.cpp
+	"Component.hpp"
+
+1566138725 source:d:\learning\sfml\game_dev_sfml\label.cpp
+	"Label.hpp"
+	"Utility.hpp"
+	<SFML/Graphics/RenderStates.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+
+1566050524 d:\learning\sfml\game_dev_sfml\label.hpp
+	"Component.hpp"
+	"ResourceIdentifiers.hpp"
+	"ResourceHolder.hpp"
+	<SFML/Graphics/Text.hpp>
+
+1566138878 source:d:\learning\sfml\game_dev_sfml\container.cpp
+	"Container.hpp"
+	<SFML/Window/Event.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+
+1566050276 d:\learning\sfml\game_dev_sfml\container.hpp
+	"Component.hpp"
+	<vector>
+	<memory>
+
+1566404740 d:\learning\sfml\game_dev_sfml\datatables.hpp
+	"SFML/Graphics.hpp"
+	"ResourceIdentifiers.hpp"
+	"Aircraft.hpp"
+	<vector>
+
+1566381445 source:d:\learning\sfml\game_dev_sfml\textnode.cpp
+	"TextNode.hpp"
+	"ResourceIdentifiers.hpp"
+	"Utility.hpp"
+
+1566381417 d:\learning\sfml\game_dev_sfml\textnode.hpp
+	"SceneNode.hpp"
+	"SFML/Graphics.hpp"
+	"ResourceIdentifiers.hpp"
+	<String>
 
