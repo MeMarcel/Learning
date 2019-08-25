@@ -2,7 +2,7 @@
 #include "TextNode.hpp"
 #include "ResourceIdentifiers.hpp"
 #include "Utility.hpp"
-TextNode::TextNode(FontHolder& font, const std::string& string) : SceneNode() , mText(){
+TextNode::TextNode(FontHolder& font, const std::string& string) : SceneNode(0) , mText(){
     mText.setFont(font.get(Fonts::font1));
     setString(string);
 }

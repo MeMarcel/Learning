@@ -4,7 +4,7 @@
 #include <map>
 #include <string>
 #include <algorithm>
-
+using namespace std::placeholders;
 
 struct AircraftMover
 {
@@ -29,6 +29,9 @@ Player::Player()
 	mKeyBinding[sf::Keyboard::Right] = MoveRight;
 	mKeyBinding[sf::Keyboard::Up] = MoveUp;
 	mKeyBinding[sf::Keyboard::Down] = MoveDown;
+	mKeyBinding[sf::Keyboard::M] = LaunchMissile;
+	mKeyBinding[sf::Keyboard::Space] = Fire;
+
 
 	// Set initial action bindings
 	initializeActions();
@@ -96,6 +99,8 @@ void Player::initializeActions()
 	mActionBinding[MoveRight].action = derivedAction<Aircraft>(AircraftMover(+playerSpeed, 0.f));
 	mActionBinding[MoveUp].action    = derivedAction<Aircraft>(AircraftMover(0.f, -playerSpeed));
 	mActionBinding[MoveDown].action  = derivedAction<Aircraft>(AircraftMover(0.f, +playerSpeed));
+	mActionBinding[Fire].action      = derivedAction<Aircraft>(std::bind(&Aircraft::fire, _1));
+	mActionBinding[LaunchMissile].action      = derivedAction<Aircraft>(std::bind(&Aircraft::launchMissile, _1));
 }
 
 bool Player::isRealtimeAction(Action action)
@@ -106,6 +111,7 @@ bool Player::isRealtimeAction(Action action)
 		case MoveRight:
 		case MoveDown:
 		case MoveUp:
+        case Fire:
 			return true;
 
 		default:

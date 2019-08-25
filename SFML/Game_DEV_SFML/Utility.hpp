@@ -32,7 +32,7 @@ float			toRadian(float degree);
 int				randomInt(int exclusiveMax);
 
 // Vector operations
-//float			length(sf::Vector2f vector);
+float			length(sf::Vector2f vector);
 sf::Vector2f	unitVector(sf::Vector2f vector);
 
 #include "Utility.inl"

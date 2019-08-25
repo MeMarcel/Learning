@@ -22,36 +22,45 @@
 	"Utility.hpp"
 	"ResourceIdentifiers.hpp"
 
-1565870948 source:d:\learning\sfml\game_dev_sfml\scenenode.cpp
+1566740939 source:d:\learning\sfml\game_dev_sfml\scenenode.cpp
 	"SceneNode.hpp"
 	<algorithm>
+	<cmath>
+	"Utility.hpp"
 
-1565867068 d:\learning\sfml\game_dev_sfml\scenenode.hpp
+1566740863 d:\learning\sfml\game_dev_sfml\scenenode.hpp
 	"Category.hpp"
 	<vector>
 	<iostream>
 	<memory>
 	"SFML/Graphics.hpp"
 	"Command.hpp"
+	"CommandQueue.hpp"
+	<set>
+	<algorithm>
 
-1566315024 source:d:\learning\sfml\game_dev_sfml\entity.cpp
+1566745540 source:d:\learning\sfml\game_dev_sfml\entity.cpp
 	"Entity.hpp"
 
-1566315072 d:\learning\sfml\game_dev_sfml\entity.hpp
+1566416861 d:\learning\sfml\game_dev_sfml\entity.hpp
 	"SFML/Graphics.hpp"
 	"SceneNode.hpp"
+	"CommandQueue.hpp"
 
-1566405503 source:d:\learning\sfml\game_dev_sfml\aircraft.cpp
+1566745650 source:d:\learning\sfml\game_dev_sfml\aircraft.cpp
 	"Aircraft.hpp"
 	<assert.h>
 	"DataTables.hpp"
 	<string>
 	"Utility.hpp"
+	"Category.hpp"
 
-1566388223 d:\learning\sfml\game_dev_sfml\aircraft.hpp
+1566741755 d:\learning\sfml\game_dev_sfml\aircraft.hpp
 	"Entity.hpp"
 	"ResourceIdentifiers.hpp"
 	"TextNode.hpp"
+	"CommandQueue.hpp"
+	"Projectile.hpp"
 
 1565977459 d:\learning\sfml\game_dev_sfml\ressourcetexture.hpp
 	"ResourceHolder.hpp"
@@ -62,18 +71,21 @@
 	"memory"
 	<map>
 
-1565803730 source:d:\learning\sfml\game_dev_sfml\spritenode.cpp
+1566676110 source:d:\learning\sfml\game_dev_sfml\spritenode.cpp
 	"SpriteNode.hpp"
 
 1565802536 d:\learning\sfml\game_dev_sfml\spritenode.hpp
 	"SceneNode.hpp"
 
-1566396061 source:d:\learning\sfml\game_dev_sfml\world.cpp
+1566745354 source:d:\learning\sfml\game_dev_sfml\world.cpp
 	"World.hpp"
 	"ResourceIdentifiers.hpp"
 	"ResourceHolder.hpp"
+	<cmath>
+	<limits>
+	"Pickup.hpp"
 
-1566393833 d:\learning\sfml\game_dev_sfml\world.hpp
+1566745243 d:\learning\sfml\game_dev_sfml\world.hpp
 	"Aircraft.hpp"
 	"ResourceHolder.hpp"
 	"ResourceIdentifiers.hpp"
@@ -83,7 +95,7 @@
 	"CommandQueue.hpp"
 	<array>
 
-1565858658 d:\learning\sfml\game_dev_sfml\category.hpp
+1566667974 d:\learning\sfml\game_dev_sfml\category.hpp
 
 1565864785 d:\learning\sfml\game_dev_sfml\command.hpp
 	"SFML/System/Time.hpp"
@@ -94,16 +106,16 @@
 1565866835 source:d:\learning\sfml\game_dev_sfml\commandqueue.cpp
 	"CommandQueue.hpp"
 
-1565861218 d:\learning\sfml\game_dev_sfml\commandqueue.hpp
+1566646561 d:\learning\sfml\game_dev_sfml\commandqueue.hpp
 	"Command.hpp"
 	<queue>
 
-1565863727 d:\learning\sfml\game_dev_sfml\player.hpp
+1566409251 d:\learning\sfml\game_dev_sfml\player.hpp
 	"CommandQueue.hpp"
 	"SFML/Graphics.hpp"
 	<map>
 
-1565883784 source:d:\learning\sfml\game_dev_sfml\player.cpp
+1566417137 source:d:\learning\sfml\game_dev_sfml\player.cpp
 	"Player.hpp"
 	"Aircraft.hpp"
 	<map>
@@ -198,7 +210,7 @@
 	"Button.hpp"
 	"Label.hpp"
 
-1566389161 d:\learning\sfml\game_dev_sfml\utility.hpp
+1566584451 d:\learning\sfml\game_dev_sfml\utility.hpp
 	<SFML/Window/Keyboard.hpp>
 	"SFML/Graphics.hpp"
 	<sstream>
@@ -228,7 +240,7 @@
 	<SFML/Graphics/Transformable.hpp>
 	<memory>
 
-1566316774 d:\learning\sfml\game_dev_sfml\resourceidentifiers.hpp
+1566415884 d:\learning\sfml\game_dev_sfml\resourceidentifiers.hpp
 	"SFML/Graphics.hpp"
 	"ResourceHolder.hpp"
 
@@ -269,13 +281,15 @@
 	<vector>
 	<memory>
 
-1566405589 d:\learning\sfml\game_dev_sfml\datatables.hpp
+1566733371 d:\learning\sfml\game_dev_sfml\datatables.hpp
 	"SFML/Graphics.hpp"
 	"ResourceIdentifiers.hpp"
 	"Aircraft.hpp"
 	<vector>
+	"Projectile.hpp"
+	"Pickup.hpp"
 
-1566381445 source:d:\learning\sfml\game_dev_sfml\textnode.cpp
+1566676129 source:d:\learning\sfml\game_dev_sfml\textnode.cpp
 	"TextNode.hpp"
 	"ResourceIdentifiers.hpp"
 	"Utility.hpp"
@@ -285,4 +299,31 @@
 	"SFML/Graphics.hpp"
 	"ResourceIdentifiers.hpp"
 	<String>
+
+1566415364 d:\learning\sfml\game_dev_sfml\projectile.hpp
+	"Entity.hpp"
+	"ResourceIdentifiers.hpp"
+	"SFML/Graphics.hpp"
+	"CommandQueue.hpp"
+
+1566657900 source:d:\learning\sfml\game_dev_sfml\projectile.cpp
+	"Projectile.hpp"
+	"SFML/Graphics.hpp"
+	"Utility.hpp"
+	"ResourceIdentifiers.hpp"
+	"DataTables.hpp"
+	<cmath>
+	<cassert>
+
+1566733642 source:d:\learning\sfml\game_dev_sfml\datatables.cpp
+	"DataTables.hpp"
+
+1566733685 d:\learning\sfml\game_dev_sfml\pickup.hpp
+	"Entity.hpp"
+	"Aircraft.hpp"
+	"DataTables.hpp"
+
+1566734043 source:d:\learning\sfml\game_dev_sfml\pickup.cpp
+	"Pickup.hpp"
+	"DataTables.hpp"
 

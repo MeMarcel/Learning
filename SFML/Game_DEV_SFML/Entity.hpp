@@ -1,11 +1,15 @@
+#ifndef ENTITY
+#define ENTITY
 #include "SFML/Graphics.hpp"
 #include "SceneNode.hpp"
+#include "CommandQueue.hpp"
 
 class Entity : public SceneNode {
 public:
     Entity(int hitpoints);
     void setVelocity(sf::Vector2f velocity);
     void setVelocity(float vx, float vy);
+    virtual void updateCurrent(sf::Time dt, CommandQueue& commands);
     sf::Vector2f getVelocity() const;
         void accelerate(sf::Vector2f speed){
         this->mVelocity += speed;
@@ -27,3 +31,4 @@ protected:
 
 
 };
+#endif

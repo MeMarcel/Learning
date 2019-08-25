@@ -1,8 +1,8 @@
 #include "SpriteNode.hpp"
 
 
-    SpriteNode::SpriteNode(const sf::Texture& texture) : mSprite(texture) {}
-    SpriteNode::SpriteNode(const sf::Texture& texture, const sf::IntRect& rect) : mSprite(texture,rect){}
+    SpriteNode::SpriteNode(const sf::Texture& texture) : SceneNode(0) , mSprite(texture) {}
+    SpriteNode::SpriteNode(const sf::Texture& texture, const sf::IntRect& rect) : SceneNode(0) , mSprite(texture,rect){}
 
 
 

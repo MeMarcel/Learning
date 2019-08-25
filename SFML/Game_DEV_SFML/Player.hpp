@@ -18,6 +18,8 @@ class Player
 			MoveRight,
 			MoveUp,
 			MoveDown,
+			LaunchMissile,
+			Fire,
 			ActionCount
 		};
 

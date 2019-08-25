@@ -27,6 +27,13 @@ private:
     void                                spawnEnemies();
     void                                addEnemies();
     void                                addEnemy(Aircraft::Type type, float x, float y);
+    void                                guideMissiles();
+    void                                handleCollisions();
+    void                                destroyEntitiesOutsideView();
+    sf::FloatRect                       getBattlefieldBounds() const;
+
+
+
 
 private:
     enum Layer
@@ -51,6 +58,8 @@ private:
 		};
 
 private:
+
+    std::vector<Aircraft*>                       mActiveEnemies;
 
     std::vector<SpawnPoint>                      mSpawnPoints;
     CommandQueue                                mCommandQueue;
